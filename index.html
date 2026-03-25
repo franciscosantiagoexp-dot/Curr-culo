@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Francisco Santiago — Storymaker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #111111;
+      --surface: #1a1a1a;
+      --card: #161616;
+      --amber: #dca54a;
+      --amber-light: #e8b060;
+      --cream: #f5f0e8;
+      --muted: #8b8b8b;
+      --border: #2a2a24;
+      --white: #ffffff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--muted);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* — GRAIN OVERLAY — */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 60px 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* — TYPOGRAPHY COMMON — */
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 8px;
+    }
+
+    /* — HEADER — */
+    header {
+      margin-bottom: 64px;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 8vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--cream);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--amber);
+      font-weight: 700;
+    }
+
+    .title-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .contact-block {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-block a,
+    .contact-block span {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+
+    .contact-block a:hover { color: var(--amber); }
+
+    .portfolio-link {
+      margin-top: 16px;
+      display: inline-block !important;
+      padding: 12px 20px;
+      border: 1px solid var(--amber);
+      color: var(--amber) !important;
+      font-size: 10px !important;
+      letter-spacing: 0.15em !important;
+      text-transform: uppercase;
+      border-radius: 4px;
+      transition: background 0.3s, color 0.3s !important;
+      align-self: flex-start;
+      text-align: center;
+      width: fit-content;
+    }
+
+    .portfolio-link:hover {
+      background: var(--amber);
+      color: var(--bg) !important;
+    }
+
+    /* — SECTION LAYOUT — */
+    section {
+      margin-bottom: 64px;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    section:nth-child(2) { animation-delay: 0.1s; }
+    section:nth-child(3) { animation-delay: 0.2s; }
+    section:nth-child(4) { animation-delay: 0.3s; }
+    section:nth-child(5) { animation-delay: 0.4s; }
+
+    /* — PERFIL — */
+    .perfil p {
+      font-size: 1.05rem;
+      color: #b3b3b3;
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+
+    .perfil strong {
+      color: var(--amber);
+      font-weight: 500;
+    }
+
+    /* — EXPERIÊNCIA — */
+    .exp-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .exp-card {
+      background: var(--card);
+      border-left: 3px solid var(--amber);
+      border-radius: 4px;
+      padding: 24px 20px;
+    }
+
+    .exp-header {
+      margin-bottom: 20px;
+    }
+
+    .exp-client {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--amber);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 6px;
+      display: block;
+    }
+
+    .exp-item {
+      margin-bottom: 16px;
+    }
+
+    .exp-item-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--amber);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .exp-item-text {
+      font-size: 0.95rem;
+      color: #b3b3b3;
+      line-height: 1.5;
+    }
+
+    .resultado {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+      color: var(--amber);
+      font-style: italic;
+    }
+
+    /* — DIFERENCIAIS — */
+    .diff-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .diff-item {
+      background: var(--card);
+      border-radius: 6px;
+      padding: 20px;
+    }
+
+    .diff-icon {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+    }
+
+    .diff-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 6px;
+    }
+
+    .diff-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* — SETUP TÉCNICO — */
+    .setup-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .setup-card {
+      background: var(--card);
+      border-radius: 6px;
+      padding: 24px 20px;
+    }
+
+    .setup-items {
+      list-style: none;
+    }
+
+    .setup-items li {
+      font-size: 0.95rem;
+      color: #b3b3b3;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .setup-items li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    /* — CTA FINAL — */
+    .cta-block {
+      background: linear-gradient(180deg, #1c1810 0%, #111111 100%);
+      border: 1px solid rgba(220, 165, 74, 0.3);
+      border-radius: 8px;
+      padding: 40px 24px;
+      text-align: center;
+      position: relative;
+    }
+
+    .cta-block blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-style: italic;
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.3;
+      margin-bottom: 24px;
+    }
+
+    .cta-block blockquote::before {
+      content: '"';
+      color: var(--amber);
+    }
+
+    .cta-block blockquote::after {
+      content: '"';
+      color: var(--amber);
+    }
+
+    .cta-body {
+      font-size: 0.95rem;
+      color: #b3b3b3;
+      line-height: 1.6;
+    }
+
+    /* — ANIMATION — */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(15px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* — DESKTOP ADJUSTMENTS — */
+    @media (min-width: 768px) {
+      .page { padding: 80px 40px; }
+      .diff-grid { grid-template-columns: 1fr 1fr; }
+      .setup-grid { grid-template-columns: repeat(3, 1fr); }
+      .exp-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+      .exp-client { margin-top: 0; }
+      .exp-row-desktop {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <p class="section-label">Currículo Profissional</p>
+    <h1>Francisco<br><em>Santiago</em></h1>
+    <p class="title-tag">Storymaker · Conteúdo em Tempo Real · Narrativa Estratégica</p>
+    
+    <div class="contact-block">
+      <span>Brasília, DF</span>
+      <a href="tel:+5561993552324">(61) 99355-2324</a>
+      <a href="mailto:franciscosantiago@email.com">franciscosantiago@email.com</a>
+      <a href="https://www.behance.net/franciscoalves33" target="_blank" class="portfolio-link">Ver Portfólio &rarr;</a>
+    </div>
+  </header>
+
+  <section>
+    <p class="section-label">Perfil Profissional</p>
+    <div class="perfil">
+      <p>
+        Storymaker especializado em <strong>captação e edição ágil para redes sociais</strong>, com foco em cobertura em tempo real e construção de narrativa. Transformo acontecimentos em conteúdo com timing, clareza e impacto — entendendo o que precisa ser comunicado antes de acionar qualquer câmera.
+      </p>
+      <p>
+        Meu background em <strong>História (UnB)</strong> me dá uma capacidade diferenciada de leitura de cenário e análise de discurso. O resultado é um material que vai além do registro técnico: visualmente dinâmico e <strong>institucionalmente seguro</strong>.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-label">Experiência de Campo</p>
+    <div class="exp-grid">
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <h2>Cobertura Institucional e Política</h2>
+          <span class="exp-client">Agência Clara Digital / GDF</span>
+        </div>
+        <div class="exp-row-desktop">
+          <div class="exp-item">
+            <p class="exp-item-label">Atuação</p>
+            <p class="exp-item-text">Captação de vídeo e cobertura em tempo real de eventos institucionais de alto perfil.</p>
+          </div>
+          <div class="exp-item">
+            <p class="exp-item-label">Diferencial</p>
+            <p class="exp-item-text">Leitura rápida de ambiente, registro estratégico de autoridades e adequação do tom visual à comunicação pública.</p>
+          </div>
+        </div>
+        <p class="resultado">↳ Entrega ágil de material alinhado ao discurso e à imagem institucional da gestão.</p>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <h2>Produção Comercial de Alto Padrão</h2>
+          <span class="exp-client">RAM, Jeep & Concessionárias</span>
+        </div>
+        <div class="exp-row-desktop">
+          <div class="exp-item">
+            <p class="exp-item-label">Atuação</p>
+            <p class="exp-item-text">Captação e edição de conteúdo mobile destacando veículos, ambiente e experiência de marca.</p>
+          </div>
+          <div class="exp-item">
+            <p class="exp-item-label">Diferencial</p>
+            <p class="exp-item-text">Entregas em curto prazo com foco rigoroso na estética automotiva e clareza comercial.</p>
+          </div>
+        </div>
+        <p class="resultado">↳ Conteúdos com alta retenção, alinhados à linguagem atual de consumo digital.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <p class="section-label">Diferenciais</p>
+    <div class="diff-grid">
+      
+      <div class="diff-item">
+        <div class="diff-icon">⚡</div>
+        <h3 class="diff-name">Velocidade com Intenção</h3>
+        <p class="diff-desc">A entrega não é apenas rápida — é estrategicamente pensada desde o enquadramento.</p>
+      </div>
+
+      <div class="diff-item">
+        <div class="diff-icon">🔍</div>
+        <h3 class="diff-name">Leitura de Cenário e Discurso</h3>
+        <p class="diff-desc">Background em História aplicado à compreensão de contextos políticos e institucionais.</p>
+      </div>
+
+      <div class="diff-item">
+        <div class="diff-icon">📖</div>
+        <h3 class="diff-name">Narrativa Aplicada</h3>
+        <p class="diff-desc">Transformação de eventos isolados em histórias visualmente consumíveis e memoráveis.</p>
+      </div>
+
+      <div class="diff-item">
+        <div class="diff-icon">🎯</div>
+        <h3 class="diff-name">Autonomia Total</h3>
+        <p class="diff-desc">Resolução completa de ponta a ponta: captação, edição e entrega sem dependências externas.</p>
+      </div>
+
+      <div class="diff-item">
+        <div class="diff-icon">📱</div>
+        <h3 class="diff-name">Mentalidade Mobile-First</h3>
+        <p class="diff-desc">Conteúdo otimizado na origem para a plataforma onde será consumido.</p>
+      </div>
+
+      <div class="diff-item">
+        <div class="diff-icon">🏛️</div>
+        <h3 class="diff-name">Segurança Institucional</h3>
+        <p class="diff-desc">Compreensão do peso da imagem pública — entrega segura em contextos de alto impacto.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <p class="section-label">Setup Técnico</p>
+    <div class="setup-grid">
+      
+      <div class="setup-card">
+        <p class="exp-item-label">Captação</p>
+        <ul class="setup-items">
+          <li>iPhone 16 Pro Max</li>
+          <li>Cage Ulanzi</li>
+          <li>Gimbal DJI</li>
+          <li>Microfone Hollyland Lark M2</li>
+          <li>Bastão LED Luxceo RGB</li>
+        </ul>
+      </div>
+
+      <div class="setup-card">
+        <p class="exp-item-label">Edição & Software</p>
+        <ul class="setup-items">
+          <li>CapCut (mobile & desktop)</li>
+          <li>Lightroom (presets próprios)</li>
+        </ul>
+      </div>
+
+      <div class="setup-card">
+        <p class="exp-item-label">Linguagem Visual</p>
+        <ul class="setup-items">
+          <li>Storytelling visual</li>
+          <li>Ritmo dinâmico</li>
+          <li>Edição orientada por retenção</li>
+          <li>Estética mobile-first</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <p class="section-label">Por que me contratar</p>
+    <div class="cta-block">
+      <blockquote>Conteúdo não é apenas imagem — é posicionamento.</blockquote>
+      <p class="cta-body">
+        Minha trajetória me permite não apenas registrar o momento, mas entender exatamente o que precisa ser comunicado e como isso será percebido. Em contextos onde imagem, discurso e timing são decisivos — como na política e em eventos de alto impacto —, meu trabalho garante que a mensagem chegue com clareza e força.
+      </p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
