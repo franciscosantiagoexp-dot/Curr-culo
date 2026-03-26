@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  
+
   <style>
     :root {
       --bg: #111111;
@@ -34,7 +34,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* — GRAIN OVERLAY — */
     body::before {
       content: '';
       position: fixed;
@@ -52,10 +51,9 @@
       z-index: 1;
     }
 
-    /* — TYPOGRAPHY COMMON — */
     .section-label {
       font-family: 'DM Mono', monospace;
-      font-size: 11px;
+      font-size: 18px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--amber);
@@ -120,24 +118,37 @@
     .contact-block a:hover { color: var(--amber); }
 
     .portfolio-link {
-      margin-top: 16px;
-      display: inline-block !important;
-      padding: 12px 20px;
-      border: 1px solid var(--amber);
-      color: var(--amber) !important;
-      font-size: 10px !important;
+      margin-top: 24px !important;
+      display: inline-flex !important;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 28px !important;
+      background: var(--amber);
+      color: var(--bg) !important;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px !important;
+      font-weight: 500;
       letter-spacing: 0.15em !important;
       text-transform: uppercase;
       border-radius: 4px;
-      transition: background 0.3s, color 0.3s !important;
+      border: none;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s !important;
       align-self: flex-start;
-      text-align: center;
       width: fit-content;
+      box-shadow: 0 4px 20px rgba(220, 165, 74, 0.35);
     }
 
     .portfolio-link:hover {
-      background: var(--amber);
+      background: var(--amber-light) !important;
       color: var(--bg) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(220, 165, 74, 0.5);
+    }
+
+    .portfolio-link::after {
+      content: '→';
+      font-size: 14px;
     }
 
     /* — SECTION LAYOUT — */
@@ -178,7 +189,7 @@
     }
 
     .exp-header {
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .exp-client {
@@ -191,32 +202,19 @@
       display: block;
     }
 
-    .exp-item {
-      margin-bottom: 16px;
-    }
-
-    .exp-item-label {
+    .exp-date {
       font-family: 'DM Mono', monospace;
       font-size: 10px;
-      color: var(--amber);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 6px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      margin-top: 4px;
+      display: block;
     }
 
     .exp-item-text {
       font-size: 0.95rem;
       color: #b3b3b3;
       line-height: 1.5;
-    }
-
-    .resultado {
-      margin-top: 20px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border);
-      font-size: 0.95rem;
-      color: var(--amber);
-      font-style: italic;
     }
 
     /* — DIFERENCIAIS — */
@@ -264,6 +262,16 @@
       padding: 24px 20px;
     }
 
+    .exp-item-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--amber);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: block;
+    }
+
     .setup-items {
       list-style: none;
     }
@@ -300,15 +308,8 @@
       margin-bottom: 24px;
     }
 
-    .cta-block blockquote::before {
-      content: '"';
-      color: var(--amber);
-    }
-
-    .cta-block blockquote::after {
-      content: '"';
-      color: var(--amber);
-    }
+    .cta-block blockquote::before { content: '"'; color: var(--amber); }
+    .cta-block blockquote::after  { content: '"'; color: var(--amber); }
 
     .cta-body {
       font-size: 0.95rem;
@@ -322,7 +323,7 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* — DESKTOP ADJUSTMENTS — */
+    /* — DESKTOP — */
     @media (min-width: 768px) {
       .page { padding: 80px 40px; }
       .diff-grid { grid-template-columns: 1fr 1fr; }
@@ -331,40 +332,37 @@
         display: flex;
         justify-content: space-between;
         align-items: baseline;
+        flex-wrap: wrap;
+        gap: 4px;
       }
       .exp-client { margin-top: 0; }
-      .exp-row-desktop {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 24px;
-      }
     }
   </style>
+
 </head>
 <body>
 <div class="page">
 
   <header>
     <p class="section-label">Currículo Profissional</p>
-    <h1>Francisco<br><em>Santiago</em></h1>
-    <p class="title-tag">Storymaker · Conteúdo em Tempo Real · Narrativa Estratégica</p>
-    
+    <h1>Francisco <em>Alves</em></h1>
+    <p class="title-tag">Storymaker · Cobertura Real Time · Narrativa Estratégica</p>
+
     <div class="contact-block">
-      <span>Brasília, DF</span>
+      <span>Francisco Santiago dos Santos Alves</span>
+      <span>Asa Sul, Brasília, DF</span>
       <a href="tel:+5561993552324">(61) 99355-2324</a>
-      <a href="mailto:franciscosantiago@email.com">franciscosantiago@email.com</a>
-      <a href="https://www.behance.net/franciscoalves33" target="_blank" class="portfolio-link">Ver Portfólio &rarr;</a>
+      <a href="mailto:franciscosantiago.exp@gmail.com">franciscosantiago.exp@gmail.com</a>
+      <a href="https://www.behance.net/franciscoalves33" target="_blank" class="portfolio-link">Acessar Portfólio</a>
     </div>
+
   </header>
 
   <section>
     <p class="section-label">Perfil Profissional</p>
     <div class="perfil">
       <p>
-        Storymaker especializado em <strong>captação e edição ágil para redes sociais</strong>, com foco em cobertura em tempo real e construção de narrativa. Transformo acontecimentos em conteúdo com timing, clareza e impacto — entendendo o que precisa ser comunicado antes de acionar qualquer câmera.
-      </p>
-      <p>
-        Meu background em <strong>História (UnB)</strong> me dá uma capacidade diferenciada de leitura de cenário e análise de discurso. O resultado é um material que vai além do registro técnico: visualmente dinâmico e <strong>institucionalmente seguro</strong>.
+        Em ambientes onde cada imagem tem peso, a diferença está em quem entende o contexto antes de acionar a câmera. Sou storymaker com foco em <strong>cobertura real time</strong>, do enquadramento à entrega. Trabalho com autonomia, respeito protocolo e trato cada projeto como se fosse o mais importante que já fiz.
       </p>
     </div>
   </section>
@@ -375,92 +373,121 @@
 
       <div class="exp-card">
         <div class="exp-header">
-          <h2>Cobertura Institucional e Política</h2>
-          <span class="exp-client">Agência Clara Digital / GDF</span>
+          <h2>Produção e Cobertura</h2>
+          <span class="exp-client">Halloween Secreto Brasília</span>
+          <span class="exp-date">2025</span>
         </div>
-        <div class="exp-row-desktop">
-          <div class="exp-item">
-            <p class="exp-item-label">Atuação</p>
-            <p class="exp-item-text">Captação de vídeo e cobertura em tempo real de eventos institucionais de alto perfil.</p>
-          </div>
-          <div class="exp-item">
-            <p class="exp-item-label">Diferencial</p>
-            <p class="exp-item-text">Leitura rápida de ambiente, registro estratégico de autoridades e adequação do tom visual à comunicação pública.</p>
-          </div>
-        </div>
-        <p class="resultado">↳ Entrega ágil de material alinhado ao discurso e à imagem institucional da gestão.</p>
+        <p class="exp-item-text">Criação de vídeos de divulgação com narrativa e cobertura real time do evento. Produção completa do conceito visual ao conteúdo publicado.</p>
       </div>
 
       <div class="exp-card">
         <div class="exp-header">
-          <h2>Produção Comercial de Alto Padrão</h2>
-          <span class="exp-client">RAM, Jeep & Concessionárias</span>
+          <h2>Cobertura e Produção</h2>
+          <span class="exp-client">Top of Mind Brasília · Jornal de Brasília</span>
+          <span class="exp-date">Novembro 2025</span>
         </div>
-        <div class="exp-row-desktop">
-          <div class="exp-item">
-            <p class="exp-item-label">Atuação</p>
-            <p class="exp-item-text">Captação e edição de conteúdo mobile destacando veículos, ambiente e experiência de marca.</p>
-          </div>
-          <div class="exp-item">
-            <p class="exp-item-label">Diferencial</p>
-            <p class="exp-item-text">Entregas em curto prazo com foco rigoroso na estética automotiva e clareza comercial.</p>
-          </div>
+        <p class="exp-item-text">Cobertura real time da cerimônia de premiação e produção de vídeos de depoimento com diretores da HC Pneus, empresa premiada na categoria.</p>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <h2>Cobertura Real Time</h2>
+          <span class="exp-client">McLaren Maia · Jeep, RAM & Land Rover</span>
+          <span class="exp-date">Setembro 2025 – Fevereiro 2026</span>
         </div>
-        <p class="resultado">↳ Conteúdos com alta retenção, alinhados à linguagem atual de consumo digital.</p>
+        <p class="exp-item-text">Cobertura de eventos e ações comerciais da rede nas marcas Jeep, RAM e Land Rover.</p>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <h2>Cobertura Real Time</h2>
+          <span class="exp-client">Brasília Shopping · Taguatinga Shopping · Terraço Shopping · JK Shopping</span>
+          <span class="exp-date">Setembro 2025 – Fevereiro 2026</span>
+        </div>
+        <p class="exp-item-text">Cobertura de campanhas e eventos de entretenimento, incluindo Natal, Carnaval e espetáculos teatrais infantis.</p>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <h2>Captação de Conteúdo</h2>
+          <span class="exp-client">SESC Mais Axé</span>
+          <span class="exp-date">Fevereiro 2026</span>
+        </div>
+        <p class="exp-item-text">Captação de ativos de divulgação do evento, comunicando atrações e informações para o público.</p>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <h2>Cobertura Institucional</h2>
+          <span class="exp-client">CLDF</span>
+          <span class="exp-date">Fevereiro 2026</span>
+        </div>
+        <p class="exp-item-text">Captação bruta de evento de entrega de material didático em escola pública no Itapoã.</p>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <h2>Captação de Depoimentos</h2>
+          <span class="exp-client">GDF</span>
+          <span class="exp-date">Março 2026</span>
+        </div>
+        <p class="exp-item-text">Captação de depoimentos institucionais para produção relacionada ao Dia das Mulheres, na Estrutural.</p>
       </div>
 
     </div>
+
   </section>
 
   <section>
     <p class="section-label">Diferenciais</p>
     <div class="diff-grid">
-      
-      <div class="diff-item">
-        <div class="diff-icon">⚡</div>
-        <h3 class="diff-name">Velocidade com Intenção</h3>
-        <p class="diff-desc">A entrega não é apenas rápida — é estrategicamente pensada desde o enquadramento.</p>
-      </div>
 
       <div class="diff-item">
-        <div class="diff-icon">🔍</div>
-        <h3 class="diff-name">Leitura de Cenário e Discurso</h3>
-        <p class="diff-desc">Background em História aplicado à compreensão de contextos políticos e institucionais.</p>
-      </div>
-
-      <div class="diff-item">
-        <div class="diff-icon">📖</div>
-        <h3 class="diff-name">Narrativa Aplicada</h3>
-        <p class="diff-desc">Transformação de eventos isolados em histórias visualmente consumíveis e memoráveis.</p>
+        <div class="diff-icon">🏛️</div>
+        <h3 class="diff-name">Segurança Institucional</h3>
+        <p class="diff-desc">Sei o peso de cada imagem em ambientes de alto impacto.</p>
       </div>
 
       <div class="diff-item">
         <div class="diff-icon">🎯</div>
         <h3 class="diff-name">Autonomia Total</h3>
-        <p class="diff-desc">Resolução completa de ponta a ponta: captação, edição e entrega sem dependências externas.</p>
+        <p class="diff-desc">Do briefing à entrega, sem depender de supervisão constante.</p>
+      </div>
+
+      <div class="diff-item">
+        <div class="diff-icon">🔍</div>
+        <h3 class="diff-name">Leitura de Cenário</h3>
+        <p class="diff-desc">Entendo o contexto antes de acionar a câmera.</p>
+      </div>
+
+      <div class="diff-item">
+        <div class="diff-icon">📖</div>
+        <h3 class="diff-name">Narrativa Aplicada</h3>
+        <p class="diff-desc">Eventos viram histórias, não apenas registros.</p>
       </div>
 
       <div class="diff-item">
         <div class="diff-icon">📱</div>
         <h3 class="diff-name">Mentalidade Mobile-First</h3>
-        <p class="diff-desc">Conteúdo otimizado na origem para a plataforma onde será consumido.</p>
+        <p class="diff-desc">O conteúdo nasce otimizado para onde vai ser consumido.</p>
       </div>
 
       <div class="diff-item">
-        <div class="diff-icon">🏛️</div>
-        <h3 class="diff-name">Segurança Institucional</h3>
-        <p class="diff-desc">Compreensão do peso da imagem pública — entrega segura em contextos de alto impacto.</p>
+        <div class="diff-icon">⚡</div>
+        <h3 class="diff-name">Velocidade com Intenção</h3>
+        <p class="diff-desc">A entrega pensada desde o enquadramento, não só na edição.</p>
       </div>
 
     </div>
+
   </section>
 
   <section>
     <p class="section-label">Setup Técnico</p>
     <div class="setup-grid">
-      
+
       <div class="setup-card">
-        <p class="exp-item-label">Captação</p>
+        <span class="exp-item-label">Captação</span>
         <ul class="setup-items">
           <li>iPhone 16 Pro Max</li>
           <li>Cage Ulanzi</li>
@@ -471,32 +498,33 @@
       </div>
 
       <div class="setup-card">
-        <p class="exp-item-label">Edição & Software</p>
+        <span class="exp-item-label">Edição</span>
         <ul class="setup-items">
-          <li>CapCut (mobile & desktop)</li>
-          <li>Lightroom (presets próprios)</li>
+          <li>CapCut Mobile</li>
+          <li>Lightroom</li>
         </ul>
       </div>
 
       <div class="setup-card">
-        <p class="exp-item-label">Linguagem Visual</p>
+        <span class="exp-item-label">Linguagem Visual</span>
         <ul class="setup-items">
           <li>Storytelling visual</li>
           <li>Ritmo dinâmico</li>
-          <li>Edição orientada por retenção</li>
+          <li>Edição por retenção</li>
           <li>Estética mobile-first</li>
         </ul>
       </div>
 
     </div>
+
   </section>
 
   <section>
     <p class="section-label">Por que me contratar</p>
     <div class="cta-block">
-      <blockquote>Conteúdo não é apenas imagem — é posicionamento.</blockquote>
+      <blockquote>O momento é irrepetível. O registro, não.</blockquote>
       <p class="cta-body">
-        Minha trajetória me permite não apenas registrar o momento, mas entender exatamente o que precisa ser comunicado e como isso será percebido. Em contextos onde imagem, discurso e timing são decisivos — como na política e em eventos de alto impacto —, meu trabalho garante que a mensagem chegue com clareza e força.
+        Cada cobertura que faço carrega esse peso. Não estou apenas captando imagem — estou preservando o que não vai se repetir. É essa consciência que me faz chegar preparado, presente e totalmente focado. Porque quando o momento passa, só resta o que foi registrado.
       </p>
     </div>
   </section>
