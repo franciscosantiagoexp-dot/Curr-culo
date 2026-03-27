@@ -187,6 +187,16 @@
       gap: 24px;
     }
 
+    .exp-block-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--amber);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: -8px;
+      display: block;
+    }
+
     .exp-card {
       background: var(--card);
       border-left: 3px solid var(--amber);
@@ -194,18 +204,29 @@
       padding: 24px 20px;
     }
 
-    .exp-header {
-      margin-bottom: 16px;
+    .exp-featured {
+      background: linear-gradient(145deg, #1a1a1a 0%, #111111 100%);
+      border: 1px solid var(--amber) !important;
+      position: relative;
     }
 
-    .exp-client {
+    .exp-featured-label {
+      position: absolute;
+      top: -10px;
+      right: 20px;
+      background: var(--amber);
+      color: var(--bg);
       font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      color: var(--amber);
-      letter-spacing: 0.1em;
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 2px;
       text-transform: uppercase;
-      margin-top: 6px;
-      display: block;
+      letter-spacing: 0.05em;
+    }
+
+    .exp-header {
+      margin-bottom: 16px;
     }
 
     .exp-date {
@@ -221,6 +242,21 @@
       font-size: 0.95rem;
       color: #b3b3b3;
       line-height: 1.5;
+    }
+
+    .exp-cta {
+      display: inline-block;
+      margin-top: 16px;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--amber);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .exp-cta:hover {
+      border-color: var(--amber);
     }
 
     /* — DIFERENCIAIS — */
@@ -377,71 +413,71 @@
     <p class="section-label">Experiência de Campo</p>
     <div class="exp-grid">
 
-      <div class="exp-card">
+      <p class="exp-block-label">Produção Independente</p>
+
+      <div class="exp-card exp-featured">
+        <div class="exp-featured-label">Projeto Autoral</div>
         <div class="exp-header">
-          <h2>Produção e Cobertura</h2>
-          <span class="exp-client">Hellowen BSB</span>
-          <span class="exp-date">2025</span>
+          <h2>Helloween Brasília</h2>
+          <span class="exp-date">Outubro 2025</span>
         </div>
-        <p class="exp-item-text">Criação de vídeos de divulgação com narrativa e cobertura real time do evento. Produção completa do conceito visual ao conteúdo publicado.</p>
+        <p class="exp-item-text">Trabalho de produção completa, do conceito à entrega. Roteirização estratégica e storytelling de 5 Reels de divulgação, captação e edição integral dos criativos, cobertura real time da experiência do público e lineup, e entrega do Aftermovie oficial do evento.</p>
+        <a href="https://www.instagram.com/helloweenbrasilia" target="_blank" class="exp-cta">Ver no Instagram →</a>
       </div>
+
+      <p class="exp-block-label" style="margin-top: 32px;">Real Time</p>
 
       <div class="exp-card">
         <div class="exp-header">
-          <h2>Cobertura e Produção</h2>
-          <span class="exp-client">Top of Mind Brasília · Jornal de Brasília</span>
+          <h2>Top of Mind Brasília · Jornal de Brasília</h2>
           <span class="exp-date">Novembro 2025</span>
         </div>
-        <p class="exp-item-text">Cobertura real time da cerimônia de premiação e produção de vídeos de depoimento com diretores da HC Pneus, empresa premiada na categoria.</p>
+        <p class="exp-item-text">Cobertura real time da cerimônia de premiação com registro dos momentos de destaque, produção de vídeos de depoimento com diretores da HC Pneus, empresa premiada na edição, e entrega do Aftermovie oficial do evento.</p>
       </div>
 
       <div class="exp-card">
         <div class="exp-header">
-          <h2>Cobertura Real Time</h2>
-          <span class="exp-client">McLarty Maia · Jeep, RAM & Land Rover</span>
+          <h2>McLarty Maia · Jeep, RAM & Land Rover</h2>
           <span class="exp-date">Setembro 2025 – Fevereiro 2026</span>
         </div>
-        <p class="exp-item-text">Cobertura de eventos e ações comerciais da rede nas marcas Jeep, RAM e Land Rover.</p>
+        <p class="exp-item-text">Cobertura contínua de eventos e ações comerciais da rede, com entregas ágeis alinhadas à identidade visual de cada marca.</p>
       </div>
 
       <div class="exp-card">
         <div class="exp-header">
-          <h2>Cobertura Real Time</h2>
-          <span class="exp-client">Brasília Shopping · Taguatinga Shopping · Terraço Shopping · JK Shopping</span>
+          <h2>Shoppings de Brasília</h2>
           <span class="exp-date">Setembro 2025 – Fevereiro 2026</span>
         </div>
-        <p class="exp-item-text">Cobertura de campanhas e eventos de entretenimento, incluindo Natal, Carnaval e espetáculos teatrais infantis.</p>
+        <p class="exp-item-text">Cobertura de campanhas sazonais e eventos de entretenimento — incluindo Natal, Carnaval e espetáculos teatrais infantis — no Brasília Shopping, Taguatinga Shopping, Terraço Shopping e JK Shopping.</p>
       </div>
+
+      <p class="exp-block-label" style="margin-top: 32px;">Captação</p>
 
       <div class="exp-card">
         <div class="exp-header">
-          <h2>Captação de Conteúdo</h2>
-          <span class="exp-client">SESC Mais Axé</span>
+          <h2>CLDF</h2>
           <span class="exp-date">Fevereiro 2026</span>
         </div>
-        <p class="exp-item-text">Captação de ativos de divulgação do evento, comunicando atrações e informações para o público.</p>
+        <p class="exp-item-text">Captação de imagens e depoimentos em ação institucional de entrega de material didático a escola pública no Itapoã.</p>
       </div>
 
       <div class="exp-card">
         <div class="exp-header">
-          <h2>Cobertura Institucional</h2>
-          <span class="exp-client">CLDF</span>
+          <h2>SESC Mais Axé</h2>
           <span class="exp-date">Fevereiro 2026</span>
         </div>
-        <p class="exp-item-text">Captação bruta de evento de entrega de material didático em escola pública no Itapoã.</p>
+        <p class="exp-item-text">Captação de ativos de divulgação comunicando atrações, programação e informações do evento ao público.</p>
       </div>
 
       <div class="exp-card">
         <div class="exp-header">
-          <h2>Captação de Depoimentos</h2>
-          <span class="exp-client">GDF</span>
+          <h2>GDF · Dia das Mulheres</h2>
           <span class="exp-date">Março 2026</span>
         </div>
-        <p class="exp-item-text">Captação de depoimentos institucionais para produção relacionada ao Dia das Mulheres, na Estrutural.</p>
+        <p class="exp-item-text">Captação de depoimentos institucionais para produção comemorativa ao Dia das Mulheres, realizada na Estrutural.</p>
       </div>
 
     </div>
-
   </section>
 
   <section>
@@ -495,7 +531,7 @@
       <div class="setup-card">
         <span class="exp-item-label">Captação</span>
         <ul class="setup-items">
-          <li>iPhone 15</li>
+          <li>iPhone 16 Pro Max</li>
           <li>Cage Ulanzi</li>
           <li>Gimbal DJI Osmo Mobile 7P</li>
           <li>Microfone Hollyland Lark A1</li>
