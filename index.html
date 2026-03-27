@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Francisco Santiago — Storymaker</title>
+  <title>Francisco Alves — Storymaker</title>
   
   <meta property="og:title" content="Francisco Alves · Storymaker" />
   <meta property="og:description" content="Storymaker especializado em narrativas para marcas, do enquadramento à entrega final." />
@@ -74,7 +74,6 @@
       margin-bottom: 8px;
     }
 
-    /* — HEADER — */
     header {
       margin-bottom: 64px;
       animation: fadeUp 0.7s ease both;
@@ -149,7 +148,7 @@
       background: var(--amber-light) !important;
       color: var(--bg) !important;
       transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(220, 165, 74, 0.5);
+      box-shadow: 0 8px 30px rgba(220, 165, 74, 0.5);
     }
 
     .portfolio-link::after {
@@ -157,7 +156,6 @@
       font-size: 14px;
     }
 
-    /* — SECTION LAYOUT — */
     section {
       margin-bottom: 64px;
       animation: fadeUp 0.7s ease both;
@@ -168,7 +166,6 @@
     section:nth-child(4) { animation-delay: 0.3s; }
     section:nth-child(5) { animation-delay: 0.4s; }
 
-    /* — PERFIL — */
     .perfil p {
       font-size: 1.05rem;
       color: #b3b3b3;
@@ -181,20 +178,18 @@
       font-weight: 500;
     }
 
-    /* — EXPERIÊNCIA — */
     .exp-grid {
       display: grid;
       gap: 24px;
     }
 
     .exp-block-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: var(--amber);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: -8px;
-      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--cream);
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
     }
 
     .exp-card {
@@ -205,9 +200,10 @@
     }
 
     .exp-featured {
-      background: linear-gradient(145deg, #1a1a1a 0%, #111111 100%);
+      background: linear-gradient(145deg, #1d1b16 0%, #111111 100%);
       border: 1px solid var(--amber) !important;
       position: relative;
+      border-left: 3px solid var(--amber) !important;
     }
 
     .exp-featured-label {
@@ -245,21 +241,32 @@
     }
 
     .exp-cta {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       margin-top: 16px;
+      padding: 6px 12px;
+      background: var(--amber);
+      color: var(--bg);
       font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: var(--amber);
+      font-size: 10px;
+      font-weight: 700;
       text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-radius: 4px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 8px rgba(220, 165, 74, 0.3);
+      width: auto;
     }
 
     .exp-cta:hover {
-      border-color: var(--amber);
+      background: var(--white);
+      transform: scale(1.02);
+      box-shadow: 0 8px 30px rgba(255, 255, 255, 0.2);
+      color: var(--bg);
     }
 
-    /* — DIFERENCIAIS — */
     .diff-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -291,7 +298,6 @@
       line-height: 1.5;
     }
 
-    /* — SETUP TÉCNICO — */
     .setup-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -330,7 +336,6 @@
       padding-bottom: 0;
     }
 
-    /* — CTA FINAL — */
     .cta-block {
       background: linear-gradient(180deg, #1c1810 0%, #111111 100%);
       border: 1px solid rgba(220, 165, 74, 0.3);
@@ -359,13 +364,11 @@
       line-height: 1.6;
     }
 
-    /* — ANIMATION — */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(15px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* — DESKTOP — */
     @media (min-width: 768px) {
       .page { padding: 80px 40px; }
       .diff-grid { grid-template-columns: 1fr 1fr; }
@@ -377,7 +380,7 @@
         flex-wrap: wrap;
         gap: 4px;
       }
-      .exp-client { margin-top: 0; }
+      .exp-cta { width: fit-content; }
     }
   </style>
 
@@ -397,7 +400,6 @@
       <a href="mailto:franciscosantiago.exp@gmail.com">franciscosantiago.exp@gmail.com</a>
       <a href="https://www.behance.net/franciscoalves33" target="_blank" class="portfolio-link">Acessar Portfólio</a>
     </div>
-
   </header>
 
   <section>
@@ -413,19 +415,7 @@
     <p class="section-label">Experiência de Campo</p>
     <div class="exp-grid">
 
-      <p class="exp-block-label">Produção Independente</p>
-
-      <div class="exp-card exp-featured">
-        <div class="exp-featured-label">Projeto Autoral</div>
-        <div class="exp-header">
-          <h2>Helloween Brasília</h2>
-          <span class="exp-date">Outubro 2025</span>
-        </div>
-        <p class="exp-item-text">Trabalho de produção completa, do conceito à entrega. Roteirização estratégica e storytelling de 5 Reels de divulgação, captação e edição integral dos criativos, cobertura real time da experiência do público e lineup, e entrega do Aftermovie oficial do evento.</p>
-        <a href="https://www.instagram.com/helloweenbrasilia" target="_blank" class="exp-cta">Ver no Instagram →</a>
-      </div>
-
-      <p class="exp-block-label" style="margin-top: 32px;">Real Time</p>
+      <p class="exp-block-label">Real Time</p>
 
       <div class="exp-card">
         <div class="exp-header">
@@ -463,7 +453,7 @@
 
       <div class="exp-card">
         <div class="exp-header">
-          <h2>SESC Mais Axé</h2>
+          <h2>SESC + Axé</h2>
           <span class="exp-date">Fevereiro 2026</span>
         </div>
         <p class="exp-item-text">Captação de ativos de divulgação comunicando atrações, programação e informações do evento ao público.</p>
@@ -477,57 +467,60 @@
         <p class="exp-item-text">Captação de depoimentos institucionais para produção comemorativa ao Dia das Mulheres, realizada na Estrutural.</p>
       </div>
 
+      <p class="exp-block-label" style="margin-top: 32px;">Produção Independente</p>
+
+      <div class="exp-card exp-featured">
+        <div class="exp-featured-label">Projeto Autoral</div>
+        <div class="exp-header">
+          <h2>Helloween Brasília</h2>
+          <span class="exp-date">Outubro 2025</span>
+        </div>
+        <p class="exp-item-text">Trabalho de produção completa, do conceito à entrega. Roteirização estratégica e storytelling de 5 Reels de divulgação, captação e edição integral dos criativos, cobertura real time da experiência do público e lineup, e entrega do Aftermovie oficial do evento.</p>
+        <a href="https://www.instagram.com/helloweenbrasilia" target="_blank" class="exp-cta">Abrir no Instagram →</a>
+      </div>
+
     </div>
   </section>
 
   <section>
     <p class="section-label">Diferenciais</p>
     <div class="diff-grid">
-
       <div class="diff-item">
         <div class="diff-icon">🏛️</div>
         <h3 class="diff-name">Segurança Institucional</h3>
         <p class="diff-desc">Sei o peso de cada imagem em ambientes de alto impacto.</p>
       </div>
-
       <div class="diff-item">
         <div class="diff-icon">🎯</div>
         <h3 class="diff-name">Autonomia Total</h3>
         <p class="diff-desc">Do briefing à entrega, sem depender de supervisão constante.</p>
       </div>
-
       <div class="diff-item">
         <div class="diff-icon">🔍</div>
         <h3 class="diff-name">Leitura de Cenário</h3>
         <p class="diff-desc">Entendo o contexto antes de acionar a câmera.</p>
       </div>
-
       <div class="diff-item">
         <div class="diff-icon">📖</div>
         <h3 class="diff-name">Narrativa Aplicada</h3>
         <p class="diff-desc">Eventos viram histórias, não apenas registros.</p>
       </div>
-
       <div class="diff-item">
         <div class="diff-icon">📱</div>
         <h3 class="diff-name">Mentalidade Mobile-First</h3>
         <p class="diff-desc">O conteúdo nasce otimizado para onde vai ser consumido.</p>
       </div>
-
       <div class="diff-item">
         <div class="diff-icon">⚡</div>
         <h3 class="diff-name">Velocidade com Intenção</h3>
         <p class="diff-desc">A entrega pensada desde o enquadramento, não só na edição.</p>
       </div>
-
     </div>
-
   </section>
 
   <section>
     <p class="section-label">Setup Técnico</p>
     <div class="setup-grid">
-
       <div class="setup-card">
         <span class="exp-item-label">Captação</span>
         <ul class="setup-items">
@@ -538,7 +531,6 @@
           <li>Bastão LED Luxceo RGB</li>
         </ul>
       </div>
-
       <div class="setup-card">
         <span class="exp-item-label">Edição</span>
         <ul class="setup-items">
@@ -546,7 +538,6 @@
           <li>Lightroom</li>
         </ul>
       </div>
-
       <div class="setup-card">
         <span class="exp-item-label">Linguagem Visual</span>
         <ul class="setup-items">
@@ -556,9 +547,7 @@
           <li>Estética mobile-first</li>
         </ul>
       </div>
-
     </div>
-
   </section>
 
   <section>
